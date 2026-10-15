@@ -1,9 +1,11 @@
 import { ArrowUpRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useInstagramRefresh } from "@/hooks/use-instagram-refresh";
 
 const instagramProfile = "https://www.instagram.com/acoutosteel_engenharia/";
 
 export function InstagramSection() {
+  const revision = useInstagramRefresh();
   return (
     <section id="instagram" className="section instagram-section" aria-labelledby="instagram-heading">
       <div className="site-container instagram-intro">
@@ -21,6 +23,7 @@ export function InstagramSection() {
       </div>
       <div className="instagram-feed">
           <iframe
+            key={revision}
             src={`${instagramProfile}embed/`}
             title="Publicações reais do Instagram da Acouto Steel Engenharia"
             loading="lazy"
