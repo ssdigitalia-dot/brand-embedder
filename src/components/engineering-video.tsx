@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import video from "@/assets/engineering-banner.mp4.asset.json";
+import webVideo from "@/assets/engineering-banner.webm.asset.json";
 import poster from "@/assets/steel-construction.jpg";
 
 export function EngineeringVideo() {
@@ -41,7 +42,10 @@ export function EngineeringVideo() {
   };
 
   return <>
-    <video ref={ref} className="hero-photo" src={video.url} poster={poster} muted loop playsInline preload="metadata" aria-label="Vídeo ilustrativo de engenharia: estruturas metálicas e laje steel deck" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)} />
+    <video ref={ref} className="hero-photo" poster={poster} muted loop playsInline preload="metadata" aria-label="Vídeo ilustrativo de engenharia: estruturas metálicas e laje steel deck" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onError={() => setFailed(true)}>
+      <source src={webVideo.url} type="video/webm" />
+      <source src={video.url} type="video/mp4" />
+    </video>
     {!failed && <Button className="hero-video-control" variant="video" size="icon" onClick={toggle} aria-label={playing ? "Pausar vídeo" : "Reproduzir vídeo"} title={playing ? "Pausar vídeo" : "Reproduzir vídeo"}>{playing ? <Pause /> : <Play />}</Button>}
   </>;
 }
