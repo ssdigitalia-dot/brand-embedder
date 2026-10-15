@@ -8,3 +8,7 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the institutional experience as sections of the home route, with shared brand and contact primitives, because this site has a single-page navigation brief.
+- Use imported asset pointers for uploaded brand media and a real square public favicon, because site imagery is CDN-served while browser icons need a direct file.
+- Do not fabricate testimonials, chronology dates or performance statistics; publish only supplied business evidence.
