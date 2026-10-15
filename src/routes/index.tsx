@@ -4,7 +4,7 @@ import { EngineeringVideo } from "@/components/engineering-video";
 import { ProjectTimeline } from "@/components/project-timeline";
 import { ArrowUpRight, ArrowRight, Check, ChevronDown, Menu, X, Layers3, Factory, House, Expand, HardHat, ShieldCheck, Clock3, Ruler, MapPin, Mail, Phone, MessageCircle, MoveDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo-acouto.png.asset.json";
+import logo from "@/assets/logo-acouto-transparent.png.asset.json";
 import construction from "@/assets/steel-construction.jpg";
 
 export const Route = createFileRoute("/")({
@@ -42,6 +42,7 @@ function Brand({ footer = false }: { footer?: boolean }) {
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
+  const [solidHeader, setSolidHeader] = useState(false);
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const targets = document.querySelectorAll(".section > .site-container, .contact-section > .site-container");
@@ -59,6 +60,8 @@ function Index() {
         reveal.observe(target);
       }
     });
+    const header = document.querySelector(".site-header");
+    const heroContent = document.querySelector(".hero-eyebrow");
     const updateNavigation = () => {
       let current = "inicio";
       nav.forEach(([, id]) => {
@@ -66,6 +69,7 @@ function Index() {
         if (element && element.getBoundingClientRect().top <= 180) current = id;
       });
       setActiveSection(current);
+      if (header && heroContent) setSolidHeader(heroContent.getBoundingClientRect().top <= header.getBoundingClientRect().bottom + 24);
     };
     window.addEventListener("scroll", updateNavigation, { passive: true });
     updateNavigation();
@@ -75,10 +79,11 @@ function Index() {
       window.removeEventListener("scroll", updateNavigation);
     };
   }, []);
+  const headerClass = `site-header${solidHeader || menuOpen ? " is-solid" : ""}`;
   return <>
     <a href="#conteudo" className="skip-link">Ir para o conteúdo</a>
     <div className="topline"><div className="site-container"><span><MapPin size={13} /> São Bernardo do Campo · SP</span><a href={`tel:+5511961198099`}><Phone size={13} /> (11) 96119-8099 <span className="top-hours"> · Seg. a sex., 8h às 18h</span></a></div></div>
-    <header className="site-header"><div className="site-container header-inner"><Brand /><nav aria-label="Navegação principal" className="desktop-nav">{nav.map(([label, id]) => <a key={id} href={`#${id}`} className={activeSection === id ? "active" : ""} aria-current={activeSection === id ? "location" : undefined}>{label}</a>)}</nav><div className="header-contact"><ContactButton /></div><Button variant="ghost" size="icon" className="mobile-menu-button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button></div>{menuOpen && <nav className="mobile-nav" aria-label="Navegação móvel">{nav.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight size={16}/></a>)}<a href={whatsapp} target="_blank" rel="noopener noreferrer">Quero Tirar Dúvidas<MessageCircle size={16}/></a></nav>}</header>
+    <header className={headerClass}><div className="site-container header-inner"><Brand /><nav aria-label="Navegação principal" className="desktop-nav">{nav.map(([label, id]) => <a key={id} href={`#${id}`} className={activeSection === id ? "active" : ""} aria-current={activeSection === id ? "location" : undefined}>{label}</a>)}</nav><div className="header-contact"><ContactButton /></div><Button variant="ghost" size="icon" className="mobile-menu-button" aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X /> : <Menu />}</Button></div>{menuOpen && <nav className="mobile-nav" aria-label="Navegação móvel">{nav.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}<ArrowUpRight size={16}/></a>)}<a href={whatsapp} target="_blank" rel="noopener noreferrer">Quero Tirar Dúvidas<MessageCircle size={16}/></a></nav>}</header>
     <main id="conteudo">
       <section className="hero" id="inicio"><EngineeringVideo/><div className="hero-shade"/><div className="site-container hero-inner"><div className="eyebrow hero-eyebrow"><span/> ENGENHARIA QUE TRANSFORMA</div><h1>Acouto Steel<span>Qualidade que constrói.<br/>Agilidade que transforma.</span></h1><p>Lajes steel deck, estruturas metálicas e reformas.<br className="desktop-break"/> Soluções inteligentes para levar sua obra mais longe.</p><div className="hero-actions"><ContactButton label="Entre em Contato Conosco" variant="hero"/><a href="#solucoes" className="hero-secondary">Conheça nossas soluções <ArrowRight size={18}/></a></div><div className="hero-bottom"><span><ShieldCheck size={18}/> Precisão técnica. Compromisso com você.</span><a href="#sobre" aria-label="Conheça a Acouto Steel"><MoveDown size={20}/></a></div></div><span className="photo-caption">ESTRUTURAS METÁLICAS & STEEL DECK · VÍDEO ILUSTRATIVO</span></section>
       <section className="benefit-strip"><div className="site-container">{[[ShieldCheck,"Qualidade sem concessões"],[Clock3,"Agilidade na execução"],[HardHat,"Suporte técnico especializado"],[Ruler,"Soluções sob medida"]].map(([Icon,text]) => { const I = Icon as typeof ShieldCheck; return <div key={String(text)}><I size={24}/><span>{String(text)}</span></div>; })}</div></section>
