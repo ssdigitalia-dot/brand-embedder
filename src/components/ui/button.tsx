@@ -13,6 +13,8 @@ const buttonVariants = cva(
         industrial: "bg-secondary text-secondary-foreground hover:bg-secondary/85 font-semibold",
         hero: "bg-primary text-primary-foreground hover:bg-primary/90 font-semibold",
         whatsapp: "bg-whatsapp text-whatsapp-foreground hover:bg-whatsapp/90 font-semibold",
+        video: "bg-industrial-dark/70 text-industrial-light border border-primary/50 hover:bg-industrial-dark",
+        timeline: "bg-background text-orange-ink border border-border hover:border-secondary data-[state=active]:border-secondary",
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
           "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
