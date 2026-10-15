@@ -61,7 +61,7 @@ function Index() {
       }
     });
     const header = document.querySelector(".site-header");
-    const hero = document.getElementById("inicio");
+    const heroContent = document.querySelector(".hero-inner");
     const updateNavigation = () => {
       let current = "inicio";
       nav.forEach(([, id]) => {
@@ -69,7 +69,7 @@ function Index() {
         if (element && element.getBoundingClientRect().top <= 180) current = id;
       });
       setActiveSection(current);
-      if (header && hero) setSolidHeader(hero.getBoundingClientRect().bottom <= header.getBoundingClientRect().bottom);
+      if (header && heroContent) setSolidHeader(heroContent.getBoundingClientRect().top <= header.getBoundingClientRect().bottom + 24);
     };
     window.addEventListener("scroll", updateNavigation, { passive: true });
     updateNavigation();
