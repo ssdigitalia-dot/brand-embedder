@@ -275,12 +275,30 @@ blockquote { font-size: 20px; line-height: 1.6; margin: 25px 0 14px; }
 .faq details[open] svg { transform: rotate(180deg); }
 .faq details p { color: var(--muted-foreground); font-size: 14px; line-height: 1.8; padding-bottom: 23px; }
 .contact-section { background: var(--primary); text-align: center; padding: 74px 0; }
-.instagram-section { background: var(--muted); border-top: 1px solid var(--border); }
+.instagram-section { background: var(--industrial-dark); color: var(--industrial-light); padding-bottom: 0; border-top: 1px solid var(--border); overflow: hidden; }
+.instagram-intro { position: relative; }
+.instagram-heading { position: relative; z-index: 1; margin-bottom: 50px; align-items: center; }
+.instagram-heading h2 { font-size: 64px; line-height: 1.02; }
+.instagram-heading h2 > span { display: block; color: var(--industrial-muted); margin-top: 7px; }
+.instagram-section .eyebrow { color: var(--secondary); }
+.instagram-brandmark { position: absolute; width: 240px; height: 240px; right: 235px; top: -25px; color: color-mix(in oklch, var(--industrial-muted) 12%, transparent); pointer-events: none; transform: rotate(-12deg); }
 .instagram-eyebrow { display: flex; align-items: center; gap: 9px; }
-.instagram-handle { display: inline-block; margin-top: 15px; color: var(--orange-ink); font-size: 16px; font-weight: 500; overflow-wrap: anywhere; }
-.instagram-feed { container-type: inline-size; max-width: 900px; margin: 0 auto; }
+.instagram-handle { display: inline-flex; align-items: center; gap: 10px; max-width: 100%; margin-top: 22px; color: var(--secondary); font-size: 16px; font-weight: 500; overflow-wrap: anywhere; transition: color 200ms; }
+.instagram-handle svg { flex-shrink: 0; transition: transform 250ms ease; }
+.instagram-handle:hover svg { transform: translate(3px, -3px); }
+.instagram-profile-button { transition: transform 250ms ease, background-color 250ms ease; }
+.instagram-profile-button:hover { transform: translateY(-3px); }
+.instagram-feed { position: relative; container-type: inline-size; width: 100%; margin: 0; border-top: 3px solid var(--secondary); background: var(--card); }
+.instagram-feed::before { content: ""; position: absolute; top: -3px; left: 0; height: 3px; width: 20%; background: var(--industrial-light); pointer-events: none; animation: instagram-line 9s ease-in-out infinite; }
 .instagram-feed iframe { display: block; width: 100%; height: calc(66.67cqw + 170px); min-height: 380px; border: 0; background: var(--card); }
 .instagram-section .section-heading > div { min-width: 0; }
+@keyframes instagram-line { 0%, 100% { transform: translateX(-100%); opacity: 0; } 15%, 85% { opacity: 0.65; } 90% { transform: translateX(500%); opacity: 0; } }
+@supports (animation-timeline: view()) {
+  .instagram-feed { animation: instagram-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 25%; }
+  @keyframes instagram-reveal { from { opacity: 0.5; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+}
+@media (max-width: 800px) { .instagram-heading { gap: 28px; margin-bottom: 36px; } .instagram-heading h2 { font-size: 52px; } .instagram-brandmark { right: 28px; top: 8px; width: 190px; height: 190px; } }
+@media (max-width: 500px) { .instagram-heading h2 { font-size: 44px; } .instagram-handle { font-size: 14px; } .instagram-brandmark { width: 140px; height: 140px; right: 18px; top: 40px; } }
 .contact-section .eyebrow { color: var(--foreground); }
 .contact-section h2 { font-size: 52px; }
 .contact-section p { font-size: 16px; line-height: 1.7; margin: 24px 0; }
