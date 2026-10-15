@@ -20,7 +20,7 @@ export const Route = createFileRoute("/")({
 });
 
 const whatsapp = "https://wa.me/5511961198099";
-const nav = [["Início", "inicio"], ["Sobre nós", "sobre"], ["Soluções", "solucoes"], ["Diferenciais", "diferenciais"], ["Contato", "contato"]];
+const nav: [string, string][] = [["Início", "inicio"], ["Sobre nós", "sobre"], ["Soluções", "solucoes"], ["Diferenciais", "diferenciais"], ["Contato", "contato"]];
 const services = [
   { icon: Layers3, title: "Lajes Steel Deck", text: "Mais rapidez na execução, menor peso estrutural e excelente desempenho. Eficiência em cada etapa da sua obra.", tag: "CONSTRUÇÃO INTELIGENTE" },
   { icon: Factory, title: "Estruturas metálicas", text: "Estruturas e telhas metálicas com materiais de qualidade, precisão e soluções adequadas às necessidades do seu projeto.", tag: "PRECISÃO E RESISTÊNCIA" },
