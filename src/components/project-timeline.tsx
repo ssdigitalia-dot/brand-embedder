@@ -19,7 +19,8 @@ export function ProjectTimeline() {
     const read = () => {
       frame = 0;
       const { top, height } = element.getBoundingClientRect();
-      const value = (window.innerHeight / 2 - top) / Math.max(height, 1);
+      const viewport = window.innerHeight;
+      const value = (viewport - top) / (viewport * 0.75 + Math.max(height, 1));
       setPinned(null);
       setScrollProgress(Math.min(1, Math.max(0, value)));
     };
