@@ -219,9 +219,7 @@ h2 > span { color: var(--muted-foreground); }
 .about-history .history-sign { color: var(--orange-ink); font-weight: 600; font-size: 14px; margin-top: 26px; padding-left: 15px; border-left: 3px solid var(--secondary); }
 .timeline { position: relative; padding-top: 20px; display: grid; grid-template-rows: repeat(3, minmax(116px, auto)); }
 .timeline-track { position: absolute; left: 19px; top: 41px; bottom: 95px; width: 3px; background: var(--border); overflow: hidden; }
-.timeline-progress { height: 0; width: 100%; background: var(--secondary); transition: height 450ms ease; }
-.timeline[data-step="1"] .timeline-progress { height: 50%; }
-.timeline[data-step="2"] .timeline-progress { height: 100%; }
+.timeline-progress { height: calc(var(--timeline-progress, 0) * 100%); width: 100%; background: var(--secondary); transition: height 150ms ease-out; }
 .timeline-item { display: flex; gap: 22px; position: relative; padding-bottom: 24px; }
 .timeline-step { width: 41px; height: 41px; flex-shrink: 0; border-radius: 50%; font-size: 13px; transition: background-color 300ms, border-color 300ms, color 300ms, box-shadow 300ms; z-index: 1; }
 .timeline-item.is-active .timeline-step { background: var(--secondary); color: var(--secondary-foreground); border-color: var(--secondary); box-shadow: 0 0 0 5px color-mix(in oklch, var(--secondary) 15%, transparent); }
