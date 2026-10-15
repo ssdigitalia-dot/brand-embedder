@@ -1,4 +1,5 @@
 # Site Acouto Steel
+- [ ] Adicionar seção Instagram com publicações reais de @acoutosteel_engenharia.
 - [x] Adicionar transições leves e entrada suave das seções na rolagem.
 - [x] Tornar a barra da linha do tempo interativa, com seleção por clique e teclado.
 - [x] Substituir o banner estático por vídeo ilustrativo institucional de engenharia; reprodução, pausa e movimento reduzido verificados.
