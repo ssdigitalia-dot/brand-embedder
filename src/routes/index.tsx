@@ -42,6 +42,7 @@ function Brand({ footer = false }: { footer?: boolean }) {
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("inicio");
+  const [solidHeader, setSolidHeader] = useState(false);
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
     const targets = document.querySelectorAll(".section > .site-container, .contact-section > .site-container");
@@ -59,6 +60,8 @@ function Index() {
         reveal.observe(target);
       }
     });
+    const header = document.querySelector(".site-header");
+    const hero = document.getElementById("inicio");
     const updateNavigation = () => {
       let current = "inicio";
       nav.forEach(([, id]) => {
@@ -66,6 +69,7 @@ function Index() {
         if (element && element.getBoundingClientRect().top <= 180) current = id;
       });
       setActiveSection(current);
+      if (header && hero) setSolidHeader(hero.getBoundingClientRect().bottom <= header.getBoundingClientRect().bottom);
     };
     window.addEventListener("scroll", updateNavigation, { passive: true });
     updateNavigation();
@@ -75,6 +79,7 @@ function Index() {
       window.removeEventListener("scroll", updateNavigation);
     };
   }, []);
+  const headerClass = `site-header${solidHeader || menuOpen ? " is-solid" : ""}`;
   return <>
     <a href="#conteudo" className="skip-link">Ir para o conteúdo</a>
     <div className="topline"><div className="site-container"><span><MapPin size={13} /> São Bernardo do Campo · SP</span><a href={`tel:+5511961198099`}><Phone size={13} /> (11) 96119-8099 <span className="top-hours"> · Seg. a sex., 8h às 18h</span></a></div></div>
