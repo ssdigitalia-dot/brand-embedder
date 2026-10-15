@@ -1,4 +1,5 @@
 # Site Acouto Steel
+- [ ] Adicionar efeitos sincronizados com a rolagem na seção Instagram e verificar publicações e movimento reduzido.
 - [x] Ampliar o Instagram para a largura total da página e aprimorar sua apresentação com efeitos sutis; publicações e largura verificadas em telas grandes e pequenas.
 - [x] Adicionar seção Instagram com incorporação oficial e cinco publicações reais de @acoutosteel_engenharia; imagens verificadas em telas grandes e pequenas.
 - [x] Adicionar transições leves e entrada suave das seções na rolagem.
