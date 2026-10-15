@@ -1,4 +1,5 @@
 # Site Acouto Steel
+- [ ] Atualizar automaticamente o Instagram durante a visita, preservando as publicações oficiais e respeitando interações em andamento.
 - [x] Adicionar efeitos sincronizados com a rolagem na seção Instagram; movimento do símbolo, publicações reais e movimento reduzido verificados.
 - [x] Ampliar o Instagram para a largura total da página e aprimorar sua apresentação com efeitos sutis; publicações e largura verificadas em telas grandes e pequenas.
 - [x] Adicionar seção Instagram com incorporação oficial e cinco publicações reais de @acoutosteel_engenharia; imagens verificadas em telas grandes e pequenas.
