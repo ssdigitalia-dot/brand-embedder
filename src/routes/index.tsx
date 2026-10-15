@@ -61,7 +61,7 @@ function Index() {
       }
     });
     const header = document.querySelector(".site-header");
-    const heroContent = document.querySelector(".hero-inner");
+    const heroContent = document.querySelector(".hero-eyebrow");
     const updateNavigation = () => {
       let current = "inicio";
       nav.forEach(([, id]) => {
