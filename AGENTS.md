@@ -15,3 +15,4 @@
 - Keep video playback and project timeline interactions in dedicated browser-safe components; honor reduced-motion preferences and leave section content visible without JavaScript.
 - Render construction dust in a browser-only canvas overlay synchronized with video playback, beneath the readability shade and content, to preserve the original video and accessible controls.
 - Render the Instagram section with the official public profile embed and a persistent profile link, because real posts can update without copying expiring image URLs or requiring credentials.
+- Refresh the official Instagram embed through a browser-only timer, pausing while the tab is hidden or the embed is focused, because updates must not interrupt visitor interactions and Instagram controls content freshness.
