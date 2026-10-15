@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Pause, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ConstructionDust } from "@/components/construction-dust";
 import video from "@/assets/engineering-banner.mp4.asset.json";
 import webVideo from "@/assets/engineering-banner.webm.asset.json";
 import poster from "@/assets/steel-construction.jpg";
@@ -46,6 +47,7 @@ export function EngineeringVideo() {
       <source src={webVideo.url} type="video/webm" />
       <source src={video.url} type="video/mp4" />
     </video>
+    {!failed && <ConstructionDust playing={playing} />}
     {!failed && <Button className="hero-video-control" variant="video" size="icon" onClick={toggle} aria-label={playing ? "Pausar vídeo" : "Reproduzir vídeo"} title={playing ? "Pausar vídeo" : "Reproduzir vídeo"}>{playing ? <Pause /> : <Play />}</Button>}
   </>;
 }

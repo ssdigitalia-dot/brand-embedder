@@ -13,3 +13,4 @@
 - Use imported asset pointers for uploaded brand media and a real square public favicon, because site imagery is CDN-served while browser icons need a direct file.
 - Do not fabricate testimonials, chronology dates or performance statistics; publish only supplied business evidence.
 - Keep video playback and project timeline interactions in dedicated browser-safe components; honor reduced-motion preferences and leave section content visible without JavaScript.
+- Render construction dust in a browser-only canvas overlay synchronized with video playback, beneath the readability shade and content, to preserve the original video and accessible controls.
