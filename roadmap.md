@@ -6,4 +6,5 @@
 - [x] Incorporar logo PNG no cabeçalho, rodapé e ícone da aba.
 - [x] Verificar navegação, WhatsApp e apresentação em telas grandes e pequenas.
 - [x] Avaliar compatibilidade da hospedagem FTP solicitada: a aplicação atual não gera o pacote estático esperado pelo fluxo enviado.
+- [ ] Deixar o logo com fundo transparente no cabeçalho e no rodapé, com ícone da aba regenerado a partir dele.
 - [ ] Publicação HostGator/FTP — bloqueada: requer adaptação para exportação estática compatível e credenciais configuradas no GitHub; não publicada.
