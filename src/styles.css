@@ -275,6 +275,12 @@ blockquote { font-size: 20px; line-height: 1.6; margin: 25px 0 14px; }
 .faq details[open] svg { transform: rotate(180deg); }
 .faq details p { color: var(--muted-foreground); font-size: 14px; line-height: 1.8; padding-bottom: 23px; }
 .contact-section { background: var(--primary); text-align: center; padding: 74px 0; }
+.instagram-section { background: var(--muted); border-top: 1px solid var(--border); }
+.instagram-eyebrow { display: flex; align-items: center; gap: 9px; }
+.instagram-handle { display: inline-block; margin-top: 15px; color: var(--orange-ink); font-size: 16px; font-weight: 500; overflow-wrap: anywhere; }
+.instagram-feed { container-type: inline-size; max-width: 900px; margin: 0 auto; }
+.instagram-feed iframe { display: block; width: 100%; height: calc(66.67cqw + 170px); min-height: 380px; border: 0; background: var(--card); }
+.instagram-section .section-heading > div { min-width: 0; }
 .contact-section .eyebrow { color: var(--foreground); }
 .contact-section h2 { font-size: 52px; }
 .contact-section p { font-size: 16px; line-height: 1.7; margin: 24px 0; }
