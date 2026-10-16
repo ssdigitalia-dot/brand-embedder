@@ -10,7 +10,8 @@
 <!-- LOVABLE:END -->
 
 - Keep the institutional experience as sections of the home route, with shared brand and contact primitives, because this site has a single-page navigation brief.
-- Use imported asset pointers for uploaded brand media and a real square public favicon, because site imagery is CDN-served while browser icons need a direct file — except the Acouto Steel logo (`src/assets/logo-acouto-steel.png`), which must stay a real bundled file (never a CDN pointer) so it survives GitHub ZIP downloads and FTP hosting.
+- Use imported asset pointers for uploaded brand media and a real square public favicon, because site imagery is CDN-served while browser icons need a direct file — except the Acouto Steel logo (`src/assets/logo-acouto-steel.png`) and the hero video (`src/assets/engineering-banner.webm`), which must stay real bundled files (never CDN pointers) so they survive GitHub ZIP downloads and FTP hosting; the MP4 variant was dropped because it exceeds the 10 MB repo file limit.
+- The site must build as a static FTP-ready package: keep `pages: [{ path: "/" }]` and `prerender: { enabled: true, autoStaticPathsDiscovery: false }` in vite.config.ts so `bun run build` emits dist/client with index.html; the uploadable site is dist/client, not the repo root.
 - Do not fabricate testimonials, chronology dates or performance statistics; publish only supplied business evidence.
 - Keep video playback and project timeline interactions in dedicated browser-safe components; honor reduced-motion preferences and leave section content visible without JavaScript.
 - Render construction dust in a browser-only canvas overlay synchronized with video playback, beneath the readability shade and content, to preserve the original video and accessible controls.
