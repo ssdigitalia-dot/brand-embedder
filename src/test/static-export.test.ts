@@ -1,12 +1,11 @@
-// @vitest-environment node
 import { describe, expect, it } from "vitest";
-// @ts-expect-error Build-time JavaScript helper is shared with the Node export script.
 import { getFetchHandler } from "../../scripts/static-handler.mjs";
 import { readFileSync } from "node:fs";
+import path from "node:path";
 
 describe("FTP export adapter", () => {
   it("uses Nitro standard rather than the listening node-server adapter", () => {
-    const config = readFileSync(new URL("../../vite.config.ts", import.meta.url), "utf8");
+    const config = readFileSync(path.join(process.cwd(), "vite.config.ts"), "utf8");
     expect(config).toMatch(/nitro:\s*\{\s*preset:\s*"standard"\s*\}/);
     expect(config).toMatch(/prerender:\s*\{\s*enabled:\s*false\s*\}/);
   });
