@@ -7,6 +7,9 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // FTP export needs an importable request handler, not node-server's listening process.
+  // Lovable keeps its own fetch-compatible preset; external builds use Nitro's standard adapter.
+  nitro: { preset: "standard" },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this

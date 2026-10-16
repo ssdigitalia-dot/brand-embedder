@@ -7,6 +7,7 @@
 import { writeFile, access, cp, mkdir } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 import path from "node:path";
+import { getFetchHandler } from "./static-handler.mjs";
 
 const root = process.cwd();
 const exists = (p) => access(p).then(() => true, () => false);
@@ -40,11 +41,7 @@ if (path.resolve(sourceClientDir) !== path.resolve(finalClientDir)) {
 }
 
 const mod = await import(pathToFileURL(path.join(root, layout.server)).href);
-const handler = mod.default ?? mod;
-if (typeof handler?.fetch !== "function") {
-  console.error("O servidor compilado não expõe fetch().");
-  process.exit(1);
-}
+const handler = getFetchHandler(mod, layout.server);
 
 const ctx = { waitUntil() {}, passThroughOnException() {}, props: {} };
 const response = await handler.fetch(
