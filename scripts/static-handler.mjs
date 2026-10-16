@@ -4,7 +4,7 @@ export function getFetchHandler(module, serverPath) {
   if (typeof handler.fetch !== "function") {
     throw new Error(
       `O servidor compilado ${serverPath} não expõe fetch(). ` +
-      'A exportação FTP exige o preset Nitro "standard"; "node-server" abre uma porta e não exporta esse manipulador. ' +
+      'A exportação FTP exige o preset Nitro "cloudflare-module"; "node-server" abre uma porta e não exporta esse manipulador. ' +
       "Recompile com a configuração atualizada antes de exportar.",
     );
   }

@@ -4,9 +4,9 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 
 describe("FTP export adapter", () => {
-  it("uses Nitro standard rather than the listening node-server adapter", () => {
+  it("uses the proven fetch adapter rather than the listening node-server adapter", () => {
     const config = readFileSync(path.join(process.cwd(), "vite.config.ts"), "utf8");
-    expect(config).toMatch(/nitro:\s*\{\s*preset:\s*"standard"\s*\}/);
+    expect(config).toMatch(/nitro:\s*\{\s*preset:\s*"cloudflare-module"\s*\}/);
     expect(config).toMatch(/prerender:\s*\{\s*enabled:\s*false\s*\}/);
   });
 
@@ -25,6 +25,6 @@ describe("FTP export adapter", () => {
   });
 
   it("rejects node-server's empty export without fabricating a handler", () => {
-    expect(() => getFetchHandler({ default: {} }, ".output/server/index.mjs")).toThrow('preset Nitro "standard"');
+    expect(() => getFetchHandler({ default: {} }, ".output/server/index.mjs")).toThrow('preset Nitro "cloudflare-module"');
   });
 });

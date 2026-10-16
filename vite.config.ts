@@ -8,8 +8,9 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   // FTP export needs an importable request handler, not node-server's listening process.
-  // Lovable keeps its own fetch-compatible preset; external builds use Nitro's standard adapter.
-  nitro: { preset: "standard" },
+  // Use the same proven fetch adapter inside and outside Lovable; standard has a srvx alias
+  // conflict with this Nitro/Vite combination. No dependency upgrade is needed.
+  nitro: { preset: "cloudflare-module" },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
