@@ -12,4 +12,5 @@
 - [x] Avaliar compatibilidade da hospedagem FTP solicitada: a aplicação atual não gera o pacote estático esperado pelo fluxo enviado.
 - [x] Logo com fundo transparente no cabeçalho e no rodapé, com ícone da aba regenerado a partir dele.
 - [x] Adaptação para exportação estática (FTP): build gera pacote estático em dist/client (index.html + assets, vídeo e logo incorporados como arquivos reais); verificado em servidor estático local sem erros 404.
-- [ ] Publicação HostGator/FTP — pendente: o usuário precisa rodar `bun run build` após baixar o ZIP do GitHub e subir o conteúdo de dist/client via FTP; credenciais não configuradas.
+- [ ] Corrigir a exportação incompatível com Nitro node-server, validar a resposta real da aplicação e entregar um ZIP estático inspecionado para Hostinger.
+- [ ] Publicação Hostinger/FTP — depende do upload do pacote pronto pelo usuário; acesso à hospedagem não disponível.
