@@ -12,5 +12,5 @@
 - [x] Avaliar compatibilidade da hospedagem FTP solicitada: a aplicação atual não gera o pacote estático esperado pelo fluxo enviado.
 - [x] Logo com fundo transparente no cabeçalho e no rodapé, com ícone da aba regenerado a partir dele.
 - [x] Adaptação para exportação estática (FTP): build gera pacote estático em dist/client (index.html + assets, vídeo e logo incorporados como arquivos reais); verificado em servidor estático local sem erros 404.
-- [ ] Corrigir a exportação incompatível com Nitro node-server, validar a resposta real da aplicação e entregar um ZIP estático inspecionado para Hostinger.
+- [x] Corrigir a exportação incompatível com Nitro node-server: preset cloudflare-module validado em dist e .output, fetch real retornando HTTP 200, seis testes aprovados, ZIP íntegro extraído e aberto com logo, vídeo e navegação sem arquivos locais faltando; pacote entregue. A validação interna da plataforma e o upload na Hostinger não estão acessíveis nesta sessão.
 - [ ] Publicação Hostinger/FTP — depende do upload do pacote pronto pelo usuário; acesso à hospedagem não disponível.
