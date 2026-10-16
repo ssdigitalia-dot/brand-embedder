@@ -12,7 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
     // Static export for FTP hosting: render "/" to dist/index.html at build time.
-    pages: [{ path: "/" }],
-    prerender: { enabled: true, autoStaticPathsDiscovery: false },
+    
+    prerender: { enabled: false },
   },
 });
