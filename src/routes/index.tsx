@@ -5,7 +5,7 @@ import { ProjectTimeline } from "@/components/project-timeline";
 import { InstagramSection } from "@/components/instagram-section";
 import { ArrowUpRight, ArrowRight, Check, ChevronDown, Menu, X, Layers3, Factory, House, Expand, HardHat, ShieldCheck, Clock3, Ruler, MapPin, Mail, Phone, MessageCircle, MoveDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo-acouto-transparent.png.asset.json";
+import logo from "@/assets/logo-acouto-steel.png";
 import construction from "@/assets/steel-construction.jpg";
 
 export const Route = createFileRoute("/")({
@@ -37,7 +37,7 @@ function ContactButton({ label = "Solicitar orçamento", variant = "industrial",
 }
 
 function Brand({ footer = false }: { footer?: boolean }) {
-  return <a href="#inicio" aria-label="Acouto Steel Engenharia — início" className={`brand ${footer ? "brand-footer" : ""}`}><img src={logo.url} alt="Acouto Steel" width="200" height="105" /><span>ENGENHARIA</span></a>;
+  return <a href="#inicio" aria-label="Acouto Steel Engenharia — início" className={`brand ${footer ? "brand-footer" : ""}`}><img src={logo} alt="Acouto Steel" width="200" height="105" /><span>ENGENHARIA</span></a>;
 }
 
 function Index() {
